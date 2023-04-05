@@ -2,6 +2,7 @@
   text-align: center;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -42,8 +43,8 @@
 .cell-container {
   display: flex;
   flex-direction: row;
-  justify-content: "center";
-  align-items: "center";
+  justify-content: center;
+  align-items: center;
   margin-top: 25%;
 }
 
@@ -55,7 +56,27 @@
   width: 50px;
   border: 1px solid black;
   border-radius: 8px;
+  position: relative;
+}
+
+.cell-input {
+  background: none;
+  border: 1px solid #EEE;
+  border-radius: 2px;
+  width: 10px;
   cursor: pointer;
+}
+
+.add-cell-span {
+  position: absolute;
+  right: -6px;
+  height: 50px;
+  width: 10px;
+  cursor: pointer;
+}
+
+.add-cell-span:hover {
+  background-color: rgba(0, 114, 27, 0.3);
 }
 
 

@@ -11,19 +11,36 @@ function App() {
     )
   }
 
+  const handleAddCell = (idx) => {
+    setCells((prevCells) => 
+      [
+        ...prevCells.slice(0, idx+1),
+        "-",
+        ...prevCells.slice(idx + 1)
+      ]
+    )
+  }
+
   const combinedCells = cells.join("")
 
   return (
     <div className="App">
       <div className="cell-container">
         {cells.map((cell, idx) => {
-          return <input 
-            className='cell' 
-            key={idx} 
-            value={cell}
-            onChange={(e) => handleCellChange(e.currentTarget.value, idx)}
-          ></input>
+          return (
+            <div key={idx} className='cell'>
+              <input 
+                className='cell-input'
+                value={cell}
+                onChange={(e) => handleCellChange(e.currentTarget.value, idx)}
+              >
+              </input>
+              <span className='add-cell-span' onClick={() => handleAddCell(idx)}>{""}</span>
+            </div>
+          )
+          
         })}
+        
       </div>
       <p>{combinedCells}</p>
     </div>
